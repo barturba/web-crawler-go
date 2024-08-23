@@ -13,6 +13,21 @@ func TestNormalizeURL(t *testing.T) {
 			inputURL: "https://blog.boot.dev/path",
 			expected: "blog.boot.dev/path",
 		},
+		{
+			name:     "trailing slash",
+			inputURL: "https://blog.boot.dev/path/",
+			expected: "blog.boot.dev/path",
+		},
+		{
+			name:     "http",
+			inputURL: "http://blog.boot.dev/path",
+			expected: "blog.boot.dev/path",
+		},
+		{
+			name:     "http with a trailing slash",
+			inputURL: "http://blog.boot.dev/path/",
+			expected: "blog.boot.dev/path",
+		},
 	}
 
 	for i, tc := range tests {
